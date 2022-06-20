@@ -35,7 +35,7 @@ Generate database:
 ````shell
 python manage.py migrate
 ````
-Change the paths in [tasks.py]([https://github.com/Citizen-Participation-Thesis/Bundling-Service](https://github.com/Citizen-Participation-Thesis/Server-Application/blob/main/assetserver/bundler/tasks.py)) line 15,16 and 17 to fit your local directories.
+Change the paths in [tasks.py](https://github.com/Citizen-Participation-Thesis/Server-Application/blob/main/assetserver/bundler/tasks.py) line 15,16 and 17 to fit your local directories.
 
 Run background worker (remember to activate RabbitMQ):
 ````shell
