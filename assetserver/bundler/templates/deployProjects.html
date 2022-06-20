@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="{{ STATIC_URL }}static/css/formStyle.css">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/add_content">Add Models</a></li>
+      <li><a href="/create_project">Create Projects</a></li>
+      <li><a href="/deploy_project" class="active">Deploy Projects</a></li>
+    </ul>
+    <div class="topContainer">
+        <div class="card">
+            <div class="container">
+                <title>Deploy Project Form</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                <h3>Deploy Project</h3>
+                    {% csrf_token %}
+                    {% for field in deploy_form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            <label>
+                                {{ field.label_tag }}
+                            </label>
+                           <div>
+                               {{ field }}
+                           </div>
+                        </div>
+                    {% endfor %}
+
+                    <input type="submit" value="Submit" name="deploy_submit" />
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="container">
+                <title>Pause Deployed Project</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                <h3>Pause Deployed Project</h3>
+                    {% csrf_token %}
+                    {% for field in pause_form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            <label>
+                                {{ field.label_tag }}
+                            </label>
+                           <div>
+                               {{ field }}
+                           </div>
+                        </div>
+                    {% endfor %}
+
+                    <input type="submit" value="Submit" name="pause_submit" />
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: green">{{ message }}</p>
+                {% endfor %}
+                <hr>
+           {% endif %}
+        </div>
+    </div>
+</head>
+<body>
+
+</body>
+</html>

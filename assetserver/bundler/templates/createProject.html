@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="{{ STATIC_URL }}static/css/formStyle.css">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/add_content">Add Models</a></li>
+      <li><a href="/create_project" class="active">Create Projects</a></li>
+      <li><a href="/deploy_project">Deploy Projects</a></li>
+    </ul>
+    <div class="topContainer">
+        <div class="card">
+            <div class="container">
+                <title>Create Project Form</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            <label>
+                                {{ field.label_tag }}
+                            </label>
+                           <div>
+                               {{ field }}
+                           </div>
+                        </div>
+                    {% endfor %}
+
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+</head>
+<body>
+
+</body>
+</html>

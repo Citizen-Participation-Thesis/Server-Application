@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="{{ STATIC_URL }}static/css/formStyle.css">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/add_content" class="active">Add Models</a></li>
+      <li><a href="/create_project">Create Projects</a></li>
+      <li><a href="/deploy_project">Deploy Projects</a></li>
+    </ul>
+    <div class="topContainer">
+        <div class="card">
+            <div class="blurBlocker"></div>
+            <div class="container">
+                <title>Group Form</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                <h3>Group Form</h3>
+                    {% csrf_token %}
+                    {% for field in group_form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            <label>
+                                {{ field.label_tag }}
+                            </label>
+                           <div>
+                               {{ field }}
+                           </div>
+                        </div>
+                    {% endfor %}
+                    <input type="submit" value="Submit" name="group_submit"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="blurBlocker"></div>
+            <div class="container">
+                <title>Material Form</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                <h3>Material Form</h3>
+                    {% csrf_token %}
+                    {% for field in material_form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            <label>
+                                {{ field.label_tag }}
+                            </label>
+                           <div>
+                               {{ field }}
+                           </div>
+                        </div>
+                    {% endfor %}
+                    <input type="submit" value="Submit" name="material_submit"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="blurBlocker"></div>
+            <div class="container">
+                <title>Prefix Form</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                <h3>Prefix Form</h3>
+                    {% csrf_token %}
+                    <div class="fieldWrapper">
+                        {{ prefix_form.prefix.errors }}
+                        <label>
+                            {{ prefix_form.prefix.label_tag }}
+                        </label>
+                       <div>
+                           {{ prefix_form.prefix }}
+                       </div>
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ prefix_form.materials.errors }}
+                        <label>
+                            {{ prefix_form.materials.label_tag }}
+                        </label>
+                       <div id="colorPicker">
+                           {{ prefix_form.materials }}
+                       </div>
+                    </div>
+                    <input type="submit" value="Submit" name="prefix_submit"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="blurBlocker"></div>
+            <div class="container">
+                <title>Model File Form</title>
+                <form method="POST" action="" enctype="multipart/form-data">
+                <h3>Model File Form</h3>
+                    {% csrf_token %}
+                    {% for field in model_form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            <label>
+                                {{ field.label_tag }}
+                            </label>
+                           <div>
+                               {{ field }}
+                           </div>
+                        </div>
+                    {% endfor %}
+                    <input type="submit" value="Submit" name="model_submit"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</head>
+<body>
+
+</body>
+</html>
